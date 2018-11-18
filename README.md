@@ -16,7 +16,7 @@ already installed) by typing `python -V` in command line.
 3. If the version is 2.x, run `python -m SimpleHTTPServer 8000`. If the version is 3.x run `python3 -m http.server 8000`
 4. Then, in your browser of choice, go to `http://localhost:8000`
 
-##Navigating the Files
+## Navigating the Files
 1. index.html sets up the main page of the restaurant reviews app
 2. restaurant.html sets up the individual restaurant pages on the app
 3. main.js provides javascript for index.html
