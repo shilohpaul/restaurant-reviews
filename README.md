@@ -2,7 +2,7 @@
 ---
 #### _Three Stage Course Material Project - Restaurant Reviews_
 
-##Author
+## Author
 The majority of the files were provided in part by Udacity Shiloh Paul made
 adjustments to main.js, restaurant_info.js, index.html, restaurant.html, and
 styles.css. Shiloh Paul wrote the sw.js file.
