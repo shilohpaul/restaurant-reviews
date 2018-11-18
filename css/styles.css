@@ -1,6 +1,10 @@
 @charset "utf-8";
 /* CSS Document */
 
+html, body {
+	height: 100%;
+}
+
 body,td,th,p{
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 10pt;
@@ -35,6 +39,7 @@ h1, h2, h3, h4, h5, h6 {
 article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+
 #maincontent {
   background-color: #f3f3f3;
   min-height: 100%;
@@ -214,6 +219,7 @@ nav h1 a {
 	flex-flow: wrap;
 	width: 100%;
 	justify-content: center;
+	height: 100%;
 }
 
 .inside header {
@@ -321,13 +327,9 @@ nav h1 a {
 	#restaurant-container, #reviews-container {
 		width: 90%;
 	}
-
 	.inside #footer {
 		width: 100%;
-		position: absolute;
-		bottom: auto;
 	}
-
 	.inside header {
 	  position: absolute;
 	}
