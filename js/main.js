@@ -196,8 +196,8 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     }
     self.markers.push(marker);
   });
-
 }
+
 /* addMarkersToMap = (restaurants = self.restaurants) => {
   restaurants.forEach(restaurant => {
     // Add marker to the map
@@ -208,3 +208,11 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     self.markers.push(marker);
   });
 } */
+
+//checking for browser compatability then registering service worker
+if (!navigator.serviceWorker) return;
+navigator.serviceWorker.register('sw.js').then(function(success){
+  console.log('service worker registration successful');
+}).catch(function(failure){
+  console.log('service worker registration failed');
+});
