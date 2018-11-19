@@ -35,6 +35,18 @@ h1, h2, h3, h4, h5, h6 {
 article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+/*Thank you so much to Big Nerd Ranch for their explanation on how to make
+skip links invisible until focused*/
+.skip {
+  position: absolute;
+  top: -50px;
+  left: -100px;
+}
+
+a.skip:focus {
+  left: 0;
+  top: 0;
+}
 
 #maincontent {
   background-color: #f3f3f3;
@@ -50,7 +62,7 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
   text-transform: uppercase;
 }
 /* ====================== Navigation ====================== */
-nav {
+#main-label {
   width: 100%;
   height: 80px;
   background-color: #252831;
