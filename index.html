@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -11,14 +11,15 @@
 
 <body>
   <header>
-    <nav>
-      <h1 role="link" aria-label="home"><a href="/">Restaurant Reviews</a></h1>
+    <nav id="main-label">
+      <h1><a href="/">Restaurant Reviews</a></h1>
     </nav>
+    <a href="#neighborhoods-select" class="skip">Skip map and go to main content</a>
   </header>
 
   <main id="maincontent">
     <section id="map-container">
-      <div id="map"></div>
+      <div id="map" role="application"></div>
     </section>
     <section>
       <div class="filter-options">
