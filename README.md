@@ -5,8 +5,12 @@
 ## Author
 The majority of the files were provided in part by Udacity. Shiloh Paul made adjustments to main.js, restaurant_info.js, index.html, restaurant.html, and styles.css. Shiloh Paul wrote the sw.js file.
 
-## Access Instructions
+## Description
+The restaurant reviews app allows users to view a variety of restaurants by
+location and cuisine type and navigate to individual restaurants for more
+information and reviews.
 
+## Installation
 1. Download or clone from this repository:
 https://github.com/shilohpaul/restaurant-reviews
 2. Once the files are downloaded, check your version of python (which is typically
