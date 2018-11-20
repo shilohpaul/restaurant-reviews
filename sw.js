@@ -18,6 +18,7 @@ var filesToCache= [
   '/js/restaurant_info.js',
   '/restaurant.html'
 ];
+//install cache
 self.addEventListener('install', function(event){
   event.waitUntil(
     caches.open(restaurantCache).then(function(cache){
@@ -25,14 +26,17 @@ self.addEventListener('install', function(event){
     })
   );
 });
-
+//use activate to update cache
 self.addEventListener('activate', function(event) {
   event.waitUntil(
     caches.keys().then(function (cacheNames) {
       return Promise.all(
         cacheNames.filter(function(cacheName) {
+          //limits filter to only caches that start with //restaurant-
           return cacheName.startsWith('restaurant-') &&
+            //ensure that it does not equal current static restaurantCache
             cacheName != restaurantCache;
+          //maps it to Promises returned by caches and deletes the old ones
           }).map(function (cacheName) {
             return cache.delete(cacheName);
           })
@@ -47,8 +51,10 @@ self.addEventListener('fetch', function(event){
       if(response) {
         return response;
       }
+      //clones the response so there are two streams. thanks to Web Fundamentals
       var fetchRequest = event.request.clone();
       return fetch(fetchRequest).then(function(response) {
+        //ensures the response is valid and not an error
         if (!response || response.status !== 200 || response.type !== 'basic') {
           return response;
         }
@@ -61,3 +67,4 @@ self.addEventListener('fetch', function(event){
     })
   );
 });
+
