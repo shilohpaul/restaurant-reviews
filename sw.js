@@ -68,18 +68,20 @@ self.addEventListener('fetch', function(event){
   );
 });
 
+
 //code for making sure mapbox appers. Thanks so much to pronebird on github
-//https://github.com/mapbox/mapbox-gl-js/issues/4326
+//https://github.com/mapbox/mapbox-gl-js/issues/4326 3/2/17
 this.addEventListener('fetch', function(event) {
-  var url = event.request.url;
-  //finds all mapbox urls
-  if(url.startsWith('https://') && (url.includes('tiles.mapbox.com') || url.includes('api.mapbox.com'))) {
+  var mapURL = event.request.url;
+  //checks urls to ensure that they are https and that they include the mapbox links
+  if(url.startsWith('https://') && (mapURL.includes('tiles.mapbox.com') || mapURL.includes('api.mapbox.com'))) {
     event.respondWith(
+      //requests the URL, returns a Promise, which is then cloned to ensure two streams, and put in the cache
       caches.match(event.request).then(function(response) {
         return response || fetch(event.request).then(function(response) {
-          var cacheResponse = response.clone();
+          var mapCache = response.clone();
           caches.open('mapbox').then(function(cache) {
-            cache.put(event.request, cacheResponse);
+            cache.put(event.request, mapCache);
           });
           return response;
         });
