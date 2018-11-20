@@ -68,3 +68,22 @@ self.addEventListener('fetch', function(event){
   );
 });
 
+//code for making sure mapbox appers. Thanks so much to pronebird on github
+//https://github.com/mapbox/mapbox-gl-js/issues/4326
+this.addEventListener('fetch', function(event) {
+  var url = event.request.url;
+  //finds all mapbox urls
+  if(url.startsWith('https://') && (url.includes('tiles.mapbox.com') || url.includes('api.mapbox.com'))) {
+    event.respondWith(
+      caches.match(event.request).then(function(response) {
+        return response || fetch(event.request).then(function(response) {
+          var cacheResponse = response.clone();
+          caches.open('mapbox').then(function(cache) {
+            cache.put(event.request, cacheResponse);
+          });
+          return response;
+        });
+      })
+    );
+  }
+});
